@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class FootballPlayerWidget extends StatelessWidget {
+class FootballPlayerCard extends StatelessWidget {
 
   final String name;
   final String country;
@@ -8,7 +8,7 @@ class FootballPlayerWidget extends StatelessWidget {
   final bool isFavorite;
   final Function()? onTap;
 
-  const FootballPlayerWidget({
+  const FootballPlayerCard({
     super.key,
     required this.name,
     required this.country,

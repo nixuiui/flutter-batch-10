@@ -50,7 +50,7 @@ class _FootballPlayerPageState extends State<FootballPlayerPage> {
         itemCount: footballPlayers.length,
         separatorBuilder: (_, __) => const SizedBox(height: 16),
         itemBuilder:
-            (_, index) => FootballPlayerWidget(
+            (_, index) => FootballPlayerCard(
               name: footballPlayers[index]['name']!,
               country: footballPlayers[index]['country']!,
               imageUrl: footballPlayers[index]['imageUrl'],
