@@ -42,6 +42,12 @@ class _FootballPlayerPageState extends State<FootballPlayerPage> {
   }
 
   @override
+  void dispose() {
+    print(' FootballPlayerPage disposed');
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Football Player Page')),

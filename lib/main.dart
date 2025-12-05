@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_batch_10/pages/footbool_player_page.dart';
+import 'package:flutter_batch_10/pages/day_4/listview_separated_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
       ),
-      home: FootballPlayerPage(),
+      home: ListViewSeparatorPage(),
     );
   }
 }
