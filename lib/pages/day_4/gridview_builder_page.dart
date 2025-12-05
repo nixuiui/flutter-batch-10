@@ -1,18 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_batch_10/pages/day_3/footbool_player_page.dart';
-import 'package:flutter_batch_10/widgets/football_player_widget.dart';
 
-class ListViewSeparatorPage extends StatefulWidget {
-  const ListViewSeparatorPage({super.key});
+class GridviewBuilderPage extends StatefulWidget {
+  const GridviewBuilderPage({super.key});
 
   @override
-  State<ListViewSeparatorPage> createState() => _ListViewSeparatorPageState();
+  State<GridviewBuilderPage> createState() => _GridviewBuilderPageState();
 }
 
-class _ListViewSeparatorPageState extends State<ListViewSeparatorPage> {
-
+class _GridviewBuilderPageState extends State<GridviewBuilderPage> {
 
   final footballPlayers = [
+    {
+      "name": "Lionel Messi",
+      "country": "Argentina",
+      "imageUrl":
+          "https://hips.hearstapps.com/hmg-prod/images/lionel-messi-celebrates-after-their-sides-third-goal-by-news-photo-1686170172.jpg?crop=0.66653xw:1xh;center,top&resize=640:*",
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "country": "Portugal",
+      "imageUrl":
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg/500px-Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg",
+    },
+    {"name": "Neymar Jr.", "country": "Brazil", "imageUrl": null},
+    {"name": "Kylian Mbappé", "country": "France", "imageUrl": null},
+    {"name": "Kevin De Bruyne", "country": "Belgium", "imageUrl": null},
+    {"name": "Robert Lewandowski", "country": "Poland", "imageUrl": null},
+    {"name": "Virgil van Dijk", "country": "Netherlands", "imageUrl": null},
+    {
+      "name": "Lionel Messi",
+      "country": "Argentina",
+      "imageUrl":
+          "https://hips.hearstapps.com/hmg-prod/images/lionel-messi-celebrates-after-their-sides-third-goal-by-news-photo-1686170172.jpg?crop=0.66653xw:1xh;center,top&resize=640:*",
+    },
+    {
+      "name": "Cristiano Ronaldo",
+      "country": "Portugal",
+      "imageUrl":
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg/500px-Cristiano_Ronaldo_playing_for_Al_Nassr_FC_against_Persepolis%2C_September_2023_%28cropped%29.jpg",
+    },
+    {"name": "Neymar Jr.", "country": "Brazil", "imageUrl": null},
+    {"name": "Kylian Mbappé", "country": "France", "imageUrl": null},
+    {"name": "Kevin De Bruyne", "country": "Belgium", "imageUrl": null},
+    {"name": "Robert Lewandowski", "country": "Poland", "imageUrl": null},
+    {"name": "Virgil van Dijk", "country": "Netherlands", "imageUrl": null},
     {
       "name": "Lionel Messi",
       "country": "Argentina",
@@ -86,21 +117,35 @@ class _ListViewSeparatorPageState extends State<ListViewSeparatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('ListView Separated Page')),
-      body: ListView.separated(
-        padding: EdgeInsets.all(16.0),
+      appBar: AppBar(title: const Text('Gridview Builder Page')),
+      body: GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3), 
         itemCount: footballPlayers.length,
-        separatorBuilder: (context, index) => index % 5 == 0 ? Container(color: Colors.red, width: double.infinity, height: 80) : SizedBox(height: 16),
         itemBuilder: (context, index) {
-          print('Building item at index: $index');
-          return FootballPlayerCard(
-            name: footballPlayers[index]['name']!,
-            country: footballPlayers[index]['country']!,
-            imageUrl: footballPlayers[index]['imageUrl'],
-            isFavorite: false,
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => FootballPlayerPage()));
-            },
+          final player = footballPlayers[index];
+          print('Building item at index $index: ${player['name']}');
+          return Card(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 20,
+                  backgroundImage: player['imageUrl'] != null
+                      ? NetworkImage(player['imageUrl'] as String)
+                      : null,
+                  child: player['imageUrl'] == null ? const Icon(Icons.person) : null,
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  player['name'] ?? '', 
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(player['country'] ?? '', textAlign: TextAlign.center),
+              ],
+            ),
           );
         },
       ),
