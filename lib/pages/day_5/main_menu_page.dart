@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_batch_10/pages/day_3/footbool_player_page.dart';
+import 'package:flutter_batch_10/utils/routes.dart';
 
 class MainMenuPage extends StatefulWidget {
   const MainMenuPage({super.key});
@@ -27,17 +28,17 @@ class _MainMenuPageState extends State<MainMenuPage> {
             },
           ),
           ListTile(
-            title: const Text('Day 5 - Example 2'),
+            title: const Text('GridView Page'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
-              Navigator.pushNamed(context, '/day5/example2');
+              Navigator.pushNamed(context, AppRoutes.gridviewPage);
             },
           ),
           ListTile(
-            title: const Text('Day 5 - Example 3'),
+            title: const Text('GridViewCount Page'),
             trailing: const Icon(Icons.chevron_right),
             onTap: () {
-              Navigator.pushNamed(context, '/day5/example3');
+              Navigator.pushNamed(context, AppRoutes.gridViewCount);
             },
           ),
         ],

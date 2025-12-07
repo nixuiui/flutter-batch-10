@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_batch_10/pages/day_5/main_menu_page.dart';
+import 'package:flutter_batch_10/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +23,8 @@ class MyApp extends StatelessWidget {
           ),
         ),
       ),
-      home: MainMenuPage(),
+      initialRoute: AppRoutes.home,
+      routes: routes,
     );
   }
 }
