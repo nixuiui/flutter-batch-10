@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_batch_10/pages/day_5/detail_football_player_page.dart';
 import 'package:flutter_batch_10/widgets/football_player_widget.dart';
 
 class FootballPlayerPage extends StatefulWidget {
@@ -60,8 +61,37 @@ class _FootballPlayerPageState extends State<FootballPlayerPage> {
               name: footballPlayers[index]['name']!,
               country: footballPlayers[index]['country']!,
               imageUrl: footballPlayers[index]['imageUrl'],
-              isFavorite: favoritePlayers.contains(footballPlayers[index]['name']!),
-              onTap: () => toggleFavorite(footballPlayers[index]['name']!),
+              isFavorite: favoritePlayers.contains(
+                footballPlayers[index]['name']!,
+              ),
+              // onTap: () => toggleFavorite(footballPlayers[index]['name']!),
+              onTap: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => DetailFootballPlayerPage(
+                          playerName: footballPlayers[index]['name']!,
+                          country: footballPlayers[index]['country']!,
+                          imageUrl: footballPlayers[index]['imageUrl'],
+                          isFavorite: favoritePlayers.contains(
+                            footballPlayers[index]['name']!,
+                          ),
+                        ),
+                  ),
+                );
+                if(result != null) {
+                  print(result);
+                  final isFavorite = result['isFavorite'] as bool;
+                  setState(() {
+                    if(isFavorite) {
+                      favoritePlayers.add(footballPlayers[index]['name']!);
+                    } else {
+                      favoritePlayers.remove(footballPlayers[index]['name']!);
+                    }
+                  });
+                }
+              }
             ),
       ),
     );

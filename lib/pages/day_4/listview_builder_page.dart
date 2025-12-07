@@ -102,6 +102,12 @@ class _ListViewBuilderPageState extends State<ListViewBuilderPage> {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Floating Action Button Pressed');
+        },
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
