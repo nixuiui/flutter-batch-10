@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_batch_10/pages/day_4/listview_builder_page.dart';
+import 'package:flutter_batch_10/pages/day_5/counter_page.dart';
 import 'package:flutter_batch_10/pages/day_5/main_menu_page.dart';
 import 'package:flutter_batch_10/pages/day_5/tabbar_page.dart';
 
@@ -14,7 +14,7 @@ class _HomePageState extends State<HomePage> {
 
   final pages = [
     MainMenuPage(),
-    ListViewBuilderPage(),
+    CounterPage(),
     TabbarPage(),
   ];
 
