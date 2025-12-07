@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_batch_10/pages/day_3/footbool_player_page.dart';
+import 'package:flutter_batch_10/pages/day_5/blocs/theme_cubit.dart';
 import 'package:flutter_batch_10/utils/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MainMenuPage extends StatefulWidget {
   const MainMenuPage({super.key});
@@ -41,6 +43,15 @@ class _MainMenuPageState extends State<MainMenuPage> {
               Navigator.pushNamed(context, AppRoutes.gridViewCount);
             },
           ),
+          BlocBuilder<ThemeCubit, ThemeData>(
+            builder: (context, theme) {
+              return SwitchListTile(
+                title: Text(theme.brightness == Brightness.dark ? 'Dark Mode' : 'Light Mode'),
+                value: theme.brightness == Brightness.dark, 
+                onChanged: (val) => context.read<ThemeCubit>().toggleTheme(),
+              );
+            }
+          )
         ],
       ),
     );
