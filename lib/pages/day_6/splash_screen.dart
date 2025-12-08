@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_batch_10/utils/colors.dart';
+import 'package:flutter_batch_10/utils/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -46,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                   SizedBox(height: 32),
                   FilledButton(
-                    onPressed: () {}, 
+                    onPressed: () => Navigator.pushReplacementNamed(context, AppRoutes.homeCoffeePage), 
                     child: Text("Get Started")
                   )
                 ],

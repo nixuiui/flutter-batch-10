@@ -9,4 +9,14 @@ class AppColors {
 
   static const Color shadowContainer = Color(0xFF050505);
   static const Color lighter = Color(0xFFA2A2A2);
+
+  static const Gradient containerLinear = LinearGradient(colors: [
+    Color(0xFF111111),
+    Color(0xFF313131),
+  ], begin: Alignment.topRight, end: Alignment.bottomLeft);
+  
+  static const Gradient containerLinear2 = LinearGradient(colors: [
+    Color(0xFF111111),
+    Color(0xFF313131),
+  ], begin: Alignment.centerLeft, end: Alignment.centerRight);
 }

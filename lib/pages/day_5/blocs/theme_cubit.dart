@@ -32,6 +32,17 @@ class ThemeCubit extends Cubit<ThemeData> {
             ),
           ),
         ),
+        iconButtonTheme: IconButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: WidgetStateProperty.all(AppColors.color1),
+            minimumSize: WidgetStateProperty.all(Size.square(52)),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+          )
+        )
       ));
 
   void toggleTheme() {
