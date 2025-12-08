@@ -5,6 +5,7 @@ import 'package:flutter_batch_10/pages/day_4/listview_builder_page.dart';
 import 'package:flutter_batch_10/pages/day_4/listview_page.dart';
 import 'package:flutter_batch_10/pages/day_4/listview_separated_page.dart';
 import 'package:flutter_batch_10/pages/day_5/home_page.dart';
+import 'package:flutter_batch_10/pages/day_6/splash_screen.dart';
 
 class AppRoutes {
   static const String home = '/home';
@@ -14,6 +15,7 @@ class AppRoutes {
   static const String listViewPage = '/listViewPage';
   static const String listViewBuilder = '/listViewBuilder';
   static const String listViewSeparated = '/listViewSeparated';
+  static const String splash = '/splash';
 }
 
 final routes = {
@@ -24,4 +26,5 @@ final routes = {
   AppRoutes.listViewPage: (context) => const ListViewPage(),
   AppRoutes.listViewBuilder: (context) => const ListViewBuilderPage(),
   AppRoutes.listViewSeparated: (context) => const ListViewSeparatorPage(),
+  AppRoutes.splash: (context) => const SplashScreen(),
 };
