@@ -3,9 +3,7 @@ import 'package:flutter_batch_10/utils/colors.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ThemeCubit extends Cubit<ThemeData> {
-  ThemeCubit()
-      : super(ThemeData(
+final styledTheme = ThemeData(
         brightness: Brightness.light,
         fontFamily: GoogleFonts.sora().fontFamily,
         filledButtonTheme: FilledButtonThemeData(
@@ -43,7 +41,10 @@ class ThemeCubit extends Cubit<ThemeData> {
             ),
           )
         )
-      ));
+      );
+
+class ThemeCubit extends Cubit<ThemeData> {
+  ThemeCubit() : super(ThemeData.light());
 
   void toggleTheme() {
     if (state.brightness == Brightness.dark) {
