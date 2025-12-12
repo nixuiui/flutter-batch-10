@@ -7,6 +7,7 @@ import 'package:flutter_batch_10/pages/day_4/listview_separated_page.dart';
 import 'package:flutter_batch_10/pages/day_5/home_page.dart';
 import 'package:flutter_batch_10/pages/day_6/home_coffee_page.dart';
 import 'package:flutter_batch_10/pages/day_6/splash_screen.dart';
+import 'package:flutter_batch_10/pages/day_7/page/login_page.dart';
 import 'package:flutter_batch_10/pages/day_7/page/user_form_page.dart';
 import 'package:flutter_batch_10/pages/day_7/page/user_page.dart';
 
@@ -22,6 +23,7 @@ class AppRoutes {
   static const String homeCoffeePage = '/homeCoffeePage';
   static const String user = '/user';
   static const String userForm = '/userForm';
+  static const String login = '/login';
 }
 
 final routes = {
@@ -36,4 +38,5 @@ final routes = {
   AppRoutes.homeCoffeePage: (context) => const HomeCoffeePage(),
   AppRoutes.user: (context) => const UserPage(),
   AppRoutes.userForm: (context) => const UserFormPage(),
+  AppRoutes.login: (context) => const LoginPage(),
 };

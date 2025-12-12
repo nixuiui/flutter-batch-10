@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_batch_10/pages/day_7/bloc/auth_bloc.dart';
 import 'package:flutter_batch_10/utils/colors.dart';
 import 'package:flutter_batch_10/utils/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,6 +12,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    print('Splash Screen Init');
+    Future.delayed(const Duration(seconds: 1), () {
+      if (context.mounted) {
+        if (context.read<AuthBloc>().state.isAuthenticated) {
+          Navigator.pushReplacementNamed(context, AppRoutes.user);
+        } else {
+          Navigator.pushReplacementNamed(context, AppRoutes.login);
+        }
+      }
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,23 +56,24 @@ class _SplashScreenState extends State<SplashScreen> {
                   SizedBox(height: 8),
                   Text(
                     "Welcome to our cozy coffee corner, where every cup is a delightful for you.",
-                    style: TextStyle(
-                      color: AppColors.lighter,
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: AppColors.lighter, fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 32),
                   FilledButton(
-                    onPressed: () => Navigator.pushReplacementNamed(context, AppRoutes.homeCoffeePage), 
-                    child: Text("Get Started")
-                  )
+                    onPressed:
+                        () => Navigator.pushReplacementNamed(
+                          context,
+                          AppRoutes.homeCoffeePage,
+                        ),
+                    child: Text("Get Started"),
+                  ),
                 ],
               ),
             ),
-          )
+          ),
         ],
-      )
+      ),
     );
   }
 }

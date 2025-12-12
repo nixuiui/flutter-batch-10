@@ -25,4 +25,14 @@ class UserDataService {
   Future<int> deleteUser(int id) async {
     return await (db.delete(db.user)..where((tbl) => tbl.id.equals(id))).go();
   }
+
+  Future<UserData?> login(String email, String password) async {
+    print('Attempting login for $email');
+    final query = (db.select(db.user)
+          ..where((tbl) => tbl.email.equals(email))
+          ..where((tbl) => tbl.password.equals(password))
+          ..limit(1));
+    final users = await query.get();
+    return users.isNotEmpty ? users.first : null;
+  }
 }
