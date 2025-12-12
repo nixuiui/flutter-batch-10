@@ -34,6 +34,9 @@ class AuthBloc extends Cubit<AuthState> {
     }
   }
 
-  void logOut() => emit(state.copyWith(isAuthenticated: false));
+  void logOut() {
+    emit(state.copyWith(isAuthenticated: false));
+    userBox.delete('user');
+  }
 
 }
