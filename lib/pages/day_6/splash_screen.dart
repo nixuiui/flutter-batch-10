@@ -14,10 +14,9 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    print('Splash Screen Init');
     Future.delayed(const Duration(seconds: 1), () {
-      if (context.mounted) {
-        if (context.read<AuthBloc>().state.isAuthenticated) {
+      if (mounted) {
+        if (context.read<AuthBloc>().checkAuthentication()) {
           Navigator.pushReplacementNamed(context, AppRoutes.user);
         } else {
           Navigator.pushReplacementNamed(context, AppRoutes.login);

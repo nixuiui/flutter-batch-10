@@ -28,6 +28,7 @@ class UserDataService {
 
   Future<UserData?> login(String email, String password) async {
     print('Attempting login for $email');
+    print('Attempting login for $password');
     final query = (db.select(db.user)
           ..where((tbl) => tbl.email.equals(email))
           ..where((tbl) => tbl.password.equals(password))

@@ -6,10 +6,12 @@ import 'package:flutter_batch_10/pages/day_7/data/database/services/user_data.da
 import 'package:flutter_batch_10/utils/routes.dart';
 import 'package:flutter_batch_10/utils/singleton.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  setupSingleton();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupSingleton();
   runApp(const MyApp());
 }
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       child: MultiBlocProvider(
         providers: [
           BlocProvider(create: (context) => ThemeCubit()),
-          BlocProvider(create: (context) => AuthBloc(getIt<UserDataService>())),
+          BlocProvider(create: (context) => AuthBloc(getIt<UserDataService>(), getIt<Box>())),
         ],
         child: BlocBuilder<ThemeCubit, ThemeData>(
           builder: (context, theme) {
